@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.adapters;
+package com.notpad.medate.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,15 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.notpad.hihimeow.R;
-import com.notpad.hihimeow.utils.Meow;
+import com.notpad.medate.R;
+import com.notpad.medate.utils.Meow;
 
 import java.util.List;
 
-public class MeowAdapter extends ArrayAdapter<Meow> {
+public class UserAdapter extends ArrayAdapter<Meow> {
     Context context;
 
-    public MeowAdapter(Context context, int resourceId, List<Meow> meows) {
+    public UserAdapter(Context context, int resourceId, List<Meow> meows) {
         super(context, resourceId, meows);
     }
 
@@ -31,8 +31,8 @@ public class MeowAdapter extends ArrayAdapter<Meow> {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_card, parent, false);
         }
-        TextView mName = (TextView) convertView.findViewById(R.id.nameMeow);
-        ImageView mImage = (ImageView) convertView.findViewById(R.id.imageMeow);
+        TextView mName = (TextView) convertView.findViewById(R.id.nameGuest);
+        ImageView mImage = (ImageView) convertView.findViewById(R.id.imgGuest);
 
         mName.setText(meow.getName());
         Glide.with(getContext()).load(meow.getProfileImageUrl()).into(mImage);

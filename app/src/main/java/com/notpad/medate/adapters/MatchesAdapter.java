@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.adapters;
+package com.notpad.medate.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.notpad.hihimeow.R;
-import com.notpad.hihimeow.utils.Matches;
+import com.notpad.medate.R;
+import com.notpad.medate.utils.Matches;
 
 import java.util.List;
 

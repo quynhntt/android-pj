@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.adapters;
+package com.notpad.medate.adapters;
 
 
 import android.content.Intent;
@@ -10,15 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.notpad.hihimeow.MessageActivity;
-import com.notpad.hihimeow.R;
+import com.notpad.medate.MessageActivity;
+import com.notpad.medate.R;
 
 public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     public TextView mLastText, mMatchName;
     public ImageView mMatchImage;
     public String imageUrl;
-    public String meowCoupleID;
+    public String mCoupleID;
     public MatchesViewHolders(@NonNull View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
@@ -32,7 +32,7 @@ public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.
     public void onClick(View v) {
         Intent intent = new Intent(v.getContext(), MessageActivity.class);
         Bundle b = new Bundle();
-        b.putString("matchID", meowCoupleID);
+        b.putString("matchID", mCoupleID);
         b.putString("matchName", mMatchName.getText().toString());
         b.putString("matchImage", imageUrl);
         intent.putExtras(b);

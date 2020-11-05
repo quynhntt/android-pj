@@ -1,4 +1,4 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 import org.junit.Test;
 

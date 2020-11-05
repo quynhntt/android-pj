@@ -1,4 +1,4 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 
 import android.os.Bundle;
@@ -18,8 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.notpad.hihimeow.adapters.MatchesAdapter;
-import com.notpad.hihimeow.utils.Matches;
+import com.notpad.medate.adapters.MatchesAdapter;
+import com.notpad.medate.utils.Matches;
 
 import java.util.ArrayList;
 import java.util.List;

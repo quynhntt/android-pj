@@ -12,14 +12,14 @@
         android:id="@+id/imgImageInMessage"
         android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:src="@drawable/logo"
+
         app:civ_border_width="2dp"
         app:civ_border_color="#FF000000"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/tvMeowNameInMessage"
-        android:text="Pham Dung"
+        android:text="Em yeu"
         android:textColor="@color/white"
         style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         android:gravity="center_vertical"/>

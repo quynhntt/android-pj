@@ -1,4 +1,4 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 
 import android.Manifest;
@@ -23,7 +23,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -38,7 +37,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.luseen.spacenavigation.SpaceNavigationView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

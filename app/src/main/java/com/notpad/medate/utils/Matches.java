@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.utils;
+package com.notpad.medate.utils;
 
 public class Matches {
     private String meowID;

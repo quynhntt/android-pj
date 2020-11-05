@@ -26,10 +26,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageMeow"
+                android:id="@+id/imgGuest"
                 android:scaleType="centerCrop"/>
             <TextView
-                android:id="@+id/nameMeow"
+                android:id="@+id/nameGuest"
                 android:textSize="40sp"
                 android:paddingLeft="20sp"
                 android:textColor="@android:color/white"

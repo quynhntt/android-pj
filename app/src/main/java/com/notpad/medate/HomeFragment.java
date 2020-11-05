@@ -1,8 +1,7 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.luseen.spacenavigation.SpaceNavigationView;
-import com.notpad.hihimeow.adapters.MeowAdapter;
-import com.notpad.hihimeow.utils.Meow;
+import com.notpad.medate.adapters.UserAdapter;
+import com.notpad.medate.utils.Meow;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,7 +45,7 @@ public class HomeFragment extends Fragment {
     private View view;
 
     private ArrayList<Meow> meows;
-    private MeowAdapter meowAdapter;
+    private UserAdapter userAdapter;
     private int i;
 
 
@@ -84,18 +82,18 @@ public class HomeFragment extends Fragment {
 
 
 
-        meowAdapter = new MeowAdapter(view.getContext(), R.layout.item_card, meows );
+        userAdapter = new UserAdapter(view.getContext(), R.layout.item_card, meows );
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame);
 
 
-        flingContainer.setAdapter(meowAdapter);
+        flingContainer.setAdapter(userAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 meows.remove(0);
-                meowAdapter.notifyDataSetChanged();
+                userAdapter.notifyDataSetChanged();
             }
             @Override
             public void onLeftCardExit(Object dataObject) {
@@ -219,7 +217,7 @@ public class HomeFragment extends Fragment {
                     String profileImageUrl = dataSnapshot.child("profileImageUrl").getValue().toString();
 
                     meows.add(new Meow(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString(),  profileImageUrl));
-                    meowAdapter.notifyDataSetChanged();
+                    userAdapter.notifyDataSetChanged();
                 }
             }
 

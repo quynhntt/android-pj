@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.utils;
+package com.notpad.medate.utils;
 
 public class Message {
     private  String message;

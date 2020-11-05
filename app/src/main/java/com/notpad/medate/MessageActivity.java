@@ -1,4 +1,4 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,8 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.notpad.hihimeow.adapters.MessageAdapter;
-import com.notpad.hihimeow.utils.Message;
+import com.notpad.medate.adapters.MessageAdapter;
+import com.notpad.medate.utils.Message;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.notpad.hihimeow;
+package com.notpad.medate;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.notpad.hihimeow", appContext.getPackageName());
+        assertEquals("com.notpad.meadate", appContext.getPackageName());
     }
 }

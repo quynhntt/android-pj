@@ -1,8 +1,7 @@
-package com.notpad.hihimeow.adapters;
+package com.notpad.medate.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.notpad.hihimeow.R;
-import com.notpad.hihimeow.utils.Message;
+import com.notpad.medate.R;
+import com.notpad.medate.utils.Message;
 
 import java.util.List;
 

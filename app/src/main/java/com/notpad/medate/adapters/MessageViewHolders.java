@@ -1,4 +1,4 @@
-package com.notpad.hihimeow.adapters;
+package com.notpad.medate.adapters;
 
 
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.notpad.hihimeow.R;
+import com.notpad.medate.R;
 
 public class MessageViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 

@@ -7,22 +7,23 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo"
+
         android:id="@+id/imgMatchedNotify"
         android:scaleType="centerCrop"/>
+
     <TextView
+        android:id="@+id/tvMatchedNotify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:id="@+id/tvMatchedNotify"
-        android:textAlignment="center"
         android:shadowColor="#000"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="10"
-        android:text="Wow, you and Dũng matched together"/>
+        android:text="Wow, you and Em yeu matched together"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
