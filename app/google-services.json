@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "506691673938",
-    "firebase_url": "https://hihimeow-460fa.firebaseio.com",
-    "project_id": "hihimeow-460fa",
-    "storage_bucket": "hihimeow-460fa.appspot.com"
+    "project_number": "19590504095",
+    "firebase_url": "https://my-project-02112020.firebaseio.com",
+    "project_id": "my-project-02112020",
+    "storage_bucket": "my-project-02112020.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:506691673938:android:4b6b0a33524785dc12e48b",
+        "mobilesdk_app_id": "1:19590504095:android:5c351dfe658f0497800caa",
         "android_client_info": {
-          "package_name": "com.notpad.hihimeow"
+          "package_name": "com.notpad.medate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "506691673938-ffibnpujikec6vh3j0pnm4asfonrqun7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.notpad.hihimeow",
-            "certificate_hash": "8eba560841912f961858278a89f821c33fe86942"
-          }
-        },
-        {
-          "client_id": "506691673938-tf20bio25c0m5a3f4nnfc3qq8rafua86.apps.googleusercontent.com",
+          "client_id": "19590504095-0kc0s30png6f09vo61t27plnnj4tfvtb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZKlZDyXgpBaNkgYUhq21KaEmCpR7Rhyw"
+          "current_key": "AIzaSyATIcg72rwmsnqVVqx5l3hF6kr0ffke4TE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "506691673938-tf20bio25c0m5a3f4nnfc3qq8rafua86.apps.googleusercontent.com",
+              "client_id": "19590504095-0kc0s30png6f09vo61t27plnnj4tfvtb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

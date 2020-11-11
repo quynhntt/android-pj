@@ -41,7 +41,7 @@ public class MatchesAdapter  extends RecyclerView.Adapter<MatchesViewHolders> {
         holder.mMatchName.setText((matchesList.get(position).getMeowName()));
         String imageProfile = matchesList.get(position).getMeowImageProfile();
         holder.imageUrl = imageProfile;
-        holder.meowCoupleID = matchesList.get(position).getMeowID();
+        holder.mCoupleID = matchesList.get(position).getMeowID();
         Glide.with(context).load(imageProfile).into(holder.mMatchImage);
 
     }
