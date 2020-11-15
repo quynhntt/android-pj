@@ -4,11 +4,6 @@ package com.notpad.medate;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +12,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.notpad.medate.adapters.UserAdapter;
-import com.notpad.medate.utils.Meow;
+import com.notpad.medate.utils.Person;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,7 +43,7 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
     private View view;
 
-    private ArrayList<Meow> meows;
+    private ArrayList<Person> people;
     private UserAdapter userAdapter;
     private int i;
 
@@ -76,13 +75,12 @@ public class HomeFragment extends Fragment {
         currMeow = mAuth.getCurrentUser();
 
 
-        meows = new ArrayList<>();
+        people = new ArrayList<>();
 
         checkMeowSex();
 
 
-
-        userAdapter = new UserAdapter(view.getContext(), R.layout.item_card, meows );
+        userAdapter = new UserAdapter(view.getContext(), R.layout.item_card, people);
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame);
 
@@ -92,12 +90,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                meows.remove(0);
+                people.remove(0);
                 userAdapter.notifyDataSetChanged();
             }
             @Override
             public void onLeftCardExit(Object dataObject) {
-                Meow meow = (Meow) dataObject;
+                Person meow = (Person) dataObject;
                 String meowID = meow.getMeowID();
                 mDatabase.child("Meows").child(meowID).child("connections").child("nope").child(currMeow.getUid()).setValue(true);
 
@@ -105,10 +103,10 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Meow meow = (Meow) dataObject;
-                String meowID = meow.getMeowID();
+                Person person = (Person) dataObject;
+                String meowID = person.getMeowID();
                 mDatabase.child("Meows").child(meowID).child("connections").child("yep").child(currMeow.getUid()).setValue(true);
-                isConnectionMatch(meow);
+                isConnectionMatch(person);
             }
 
             @Override
@@ -133,13 +131,14 @@ public class HomeFragment extends Fragment {
         return view;
 
     }
+
     //check khi 2 người match vào nhau
-    private void isConnectionMatch(final Meow meow) {
-        DatabaseReference currMeowConnectionDb = mDatabase.child("Meows").child(currMeow.getUid()).child("connections").child("yep").child(meow.getMeowID());
+    private void isConnectionMatch(final Person person) {
+        DatabaseReference currMeowConnectionDb = mDatabase.child("Meows").child(currMeow.getUid()).child("connections").child("yep").child(person.getMeowID());
         currMeowConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
                     //tạo key phòng chat
                     String key = mDatabase.child("Messages").push().getKey();
 //                    //khi cả 2 người match vào nhau thì tạo key của mình sang bên đối phương, và tạo key của đối phương vào mình
@@ -156,7 +155,7 @@ public class HomeFragment extends Fragment {
                     mDatabase.child("Meows").child(dataSnapshot.getKey()).child("connections").child("matches").child(currMeow.getUid()).updateChildren(startData);
                     mDatabase.child("Meows").child(currMeow.getUid()).child("connections").child("matches").child(dataSnapshot.getKey()).updateChildren(startData);
 
-                    showDialogMatched(meow);
+                    showDialogMatched(person);
 
                 }
             }
@@ -216,7 +215,7 @@ public class HomeFragment extends Fragment {
 
                     String profileImageUrl = dataSnapshot.child("profileImageUrl").getValue().toString();
 
-                    meows.add(new Meow(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString(),  profileImageUrl));
+                    people.add(new Person(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString(), profileImageUrl));
                     userAdapter.notifyDataSetChanged();
                 }
             }
@@ -243,8 +242,8 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void showDialogMatched(final Meow meow){
-        final Dialog dialog =  new Dialog(getContext());
+    public void showDialogMatched(final Person person) {
+        final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_match_success);
         dialog.setCanceledOnTouchOutside(false);
@@ -253,8 +252,8 @@ public class HomeFragment extends Fragment {
         Button sayHello = dialog.findViewById(R.id.btMatchedSayHello);
         Button dismiss = dialog.findViewById(R.id.btMatchedDismiss);
 
-        textNotify.setText("Wow, you and "+ meow.getName()+" matched together");
-        Glide.with(getActivity().getApplication()).load(meow.getProfileImageUrl()).into(imageNotify);
+        textNotify.setText("Wow, you and " + person.getName() + " matched together");
+        Glide.with(getActivity().getApplication()).load(person.getProfileImageUrl()).into(imageNotify);
 
         sayHello.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -262,9 +261,9 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), MessageActivity.class);
                 dialog.dismiss();
                 Bundle b = new Bundle();
-                b.putString("matchID", meow.getMeowID());
-                b.putString("matchName", meow.getName());
-                b.putString("matchImage", meow.getProfileImageUrl());
+                b.putString("matchID", person.getMeowID());
+                b.putString("matchName", person.getName());
+                b.putString("matchImage", person.getProfileImageUrl());
                 intent.putExtras(b);
                 startActivity(intent);
             }

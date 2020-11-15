@@ -1,14 +1,14 @@
 package com.notpad.medate.utils;
 
-public class Meow {
+public class Person {
     private String meowID;
     private String name;
     private String profileImageUrl;
 
-    public Meow() {
+    public Person() {
     }
 
-    public Meow(String meowID, String name, String profileImageUrl) {
+    public Person(String meowID, String name, String profileImageUrl) {
         this.meowID = meowID;
         this.name = name;
         this.profileImageUrl = profileImageUrl;

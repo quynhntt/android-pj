@@ -1,8 +1,5 @@
 package com.notpad.medate;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +8,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -70,22 +70,22 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 final RadioButton radioButton = (RadioButton) findViewById(selectId);
 
-                if(radioButton.getText() == null){
+                if (radioButton.getText() == null) {
                     return;
                 }
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
                 final String name = mName.getText().toString();
                 final String gender = radioButton.getText().toString();
-                final String imageUrl = gender.equals("Male") ? "https://firebasestorage.googleapis.com/v0/b/hihimeow-460fa.appspot.com/o/profileImages%2Fmale_cat.jpg?alt=media&token=ce38aef0-1720-4e6d-803d-118b9d804149"
-                        : "https://firebasestorage.googleapis.com/v0/b/hihimeow-460fa.appspot.com/o/profileImages%2Ffemale_cat.jpg?alt=media&token=ec39a436-d9ef-407b-b7cb-025d05ed660a";
+                final String imageUrl = gender.equals("Male") ? "https://firebasestorage.googleapis.com/v0/b/my-project-02112020.appspot.com/o/male.png?alt=media&token=1d22bf7a-e6e1-46ca-bd36-cf0a5a8d1ca1"
+                        : "https://firebasestorage.googleapis.com/v0/b/my-project-02112020.appspot.com/o/female.png?alt=media&token=13a7ef0a-e06a-4f9e-b0fb-09619c2039cf";
                 //tạo account trên firebase bằng email
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
+                        if (!task.isSuccessful()) {
                             Toast.makeText(RegistrationActivity.this, task.getException().toString(), Toast.LENGTH_SHORT);
-                        }else{
+                        } else {
                             String userId = mAuth.getCurrentUser().getUid();
                             Map meowInfo = new HashMap<>();
                             meowInfo.put("name", name);
